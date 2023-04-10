@@ -1,0 +1,58 @@
+const express = require('express');
+const router = express.Router();
+const Cart = require('../models/product');
+
+//ceate route for product with fields name, description, details, image, price
+router.post('/product', (req, res) => {
+    const { name, description, details, image, price } = req.body;
+    const product = new Product({
+        name,
+        description,
+        details,
+        image,
+        price
+    });
+    product.save()
+        .then(() => res.json('Product added!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//create route to get all products
+router.route('/product').get((req, res) => {
+    Product.find()
+        .then(product => res.json(product))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//create route to get product by id
+router.route('/product/:id').get((req, res) => {
+    Product.findById(req.params.id)
+        .then(product => res.json(product))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//create route to delete product
+router.route('/product/:id').delete((req, res) => {
+    Product.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Product deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//create route to update product
+router.route('/product/:id').patch((req, res) => {
+    Product.findById(req.params.id)
+        .then(product => {
+            product.name = req.body.name;
+            product.description = req.body.description;
+            product.details = req.body.details;
+            product.image = req.body.image;
+            product.price = req.body.price;
+
+            product.save()
+                .then(() => res.json('Product updated!'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+module.exports = router;
