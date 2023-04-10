@@ -1,4 +1,4 @@
-//create model for cart with fields name, price, email, quantity
+//created model for cart with fields name, price, email, quantity
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const cartSchema = new Schema({

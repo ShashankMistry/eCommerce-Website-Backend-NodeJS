@@ -1,16 +1,16 @@
-//created model for order with fields productName, productId, name, email, total, quantity
+//created model for user with fields id which is email, fName, lName, email, pass, address
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const orderSchema = new Schema({
-    productName: {
+const userSchema = new Schema({
+    id: {
         type: String,
         required: true
     },
-    productId: {
+    fName: {
         type: String,
         required: true
     },
-    name: {
+    lName: {
         type: String,
         required: true
     },
@@ -18,16 +18,16 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
-    total: {
-        type: Number,
+    pass: {
+        type: String,
         required: true
     },
-    quantity: {
-        type: Number,
+    address: {
+        type: String,
         required: true
     }
 }, {
     timestamps: true
 });
-const Order = mongoose.model('Order', orderSchema);
-module.exports = Order;
+const User = mongoose.model('User', userSchema);
+module.exports = User;
