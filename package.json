@@ -1,0 +1,19 @@
+{
+  "name": "assignment4_group8",
+  "version": "1.0.0",
+  "description": "ecommerce website backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShashankMistry/eCommerce-Website-Backend-NodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShashankMistry/eCommerce-Website-Backend-NodeJS/issues"
+  },
+  "homepage": "https://github.com/ShashankMistry/eCommerce-Website-Backend-NodeJS#readme"
+}
