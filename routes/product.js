@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../models/product');
 
 //ceate route for product with fields name, description, details, image, price
-router.post('/product', (req, res) => {
+router.post('/', (req, res) => {
     const { name, description, details, image, price } = req.body;
     const product = new Product({
         name,
@@ -18,28 +18,28 @@ router.post('/product', (req, res) => {
 });
 
 //create route to get all products
-router.route('/product').get((req, res) => {
+router.get('/',(req, res) => {
     Product.find()
         .then(product => res.json(product))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to get product by id
-router.route('/product/:id').get((req, res) => {
+router.get('/:id',(req, res) => {
     Product.findById(req.params.id)
         .then(product => res.json(product))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to delete product
-router.route('/product/:id').delete((req, res) => {
+router.delete('/:id',(req, res) => {
     Product.findByIdAndDelete(req.params.id)
         .then(() => res.json('Product deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to update product
-router.route('/product/:id').patch((req, res) => {
+router.patch('/:id',(req, res) => {
     Product.findById(req.params.id)
         .then(product => {
             product.name = req.body.name;

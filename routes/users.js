@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 
 //ceate route for user with fields email, fName, lName, email, pass, address
-router.post('/user', (req, res) => {
+router.post('/', (req, res) => {
     const { fName, lName, email, pass, address } = req.body;
     const user = new User({
         fName,
@@ -25,21 +25,21 @@ router.get('/', (req, res) => {
 });
 
 //create route to get user by email
-router.route('/user/:email').get((req, res) => {
+router.get('/:email',(req, res) => {
     User.find({ email: req.params.email })
         .then(user => res.json(user))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to delete user
-router.route('/user/:id').delete((req, res) => {
+router.delete('/:id',(req, res) => {
     User.findByIdAndDelete(req.params.id)
         .then(() => res.json('User deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to update user
-router.route('/user/:id').patch((req, res) => {
+router.patch('/:id',(req, res) => {
     User.findById(req.params.id)
         .then(user => {
             user.fName = req.body.fName;
