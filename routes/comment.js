@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Cart = require('../models/comment');
+const Comment = require('../models/comment');
 
 //ceate route for comment with fields productId, email, rating, review, image
 //create route for post comment
@@ -19,7 +19,7 @@ router.post('/comment', (req, res) => {
 });
 
 //create route to get all comments
-router.route('/comment').get((req, res) => {
+router.get('/',(req, res) => {
     Comment.find()
         .then(comment => res.json(comment))
         .catch(err => res.status(400).json('Error: ' + err));

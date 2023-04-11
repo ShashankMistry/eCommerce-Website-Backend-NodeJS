@@ -7,7 +7,7 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 // connect to mongoDB
-mongoose.connect('mongodb://localhost:27017/eCommerceBackend', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
+mongoose.connect('mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.0', {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {console.log('Connected to MongoDB')});
@@ -23,7 +23,7 @@ const cartRoutes = require('./routes/cart');
 const commentRoutes = require('./routes/comment');
 const orderRoutes = require('./routes/order');
 const productRoutes = require('./routes/product');
-const userRoutes = require('./routes/user');
+const userRoutes = require('./routes/users');
 
 app.use('/cart', cartRoutes);
 app.use('/comment', commentRoutes);
@@ -37,3 +37,4 @@ app.listen (PORT, () => {
 }
 
 );
+

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Cart = require('../models/user');
+const User = require('../models/user');
 
 //ceate route for user with fields email, fName, lName, email, pass, address
 router.post('/user', (req, res) => {
@@ -18,7 +18,7 @@ router.post('/user', (req, res) => {
 });
 
 //create route to get all users
-router.route('/user').get((req, res) => {
+router.get('/', (req, res) => {
     User.find()
         .then(user => res.json(user))
         .catch(err => res.status(400).json('Error: ' + err));

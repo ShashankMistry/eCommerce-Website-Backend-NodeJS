@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Cart = require('../models/product');
+const Product = require('../models/product');
 
 //ceate route for product with fields name, description, details, image, price
 router.post('/product', (req, res) => {
