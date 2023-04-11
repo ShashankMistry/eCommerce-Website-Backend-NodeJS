@@ -274,16 +274,320 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "POST COMMENT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": \"6435b376c09af7ac3cf81884\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"rating\": 4,\r\n  \"review\": \"This is a review of the product. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rhoncus metus id ex bibendum, eu feugiat sapien finibus. Sed viverra leo in est molestie, sit amet malesuada dui fermentum.\",\r\n  \"image\": \"https://example.com/reviews/review-image.jpg\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET WITH PRODUCT ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comment/6435b376c09af7ac3cf81884",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"6435b376c09af7ac3cf81884"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE WITH ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comment/6435b64ac09af7ac3cf81898",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"6435b64ac09af7ac3cf81898"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
 			"name": "ORDERS",
-			"item": []
+			"item": [
+				{
+					"name": "GET ORDERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST ORDER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productName\": \"Product A\",\r\n  \"productId\": \"6435b64ac09af7ac3cf81898\",\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"total\": 50.99,\r\n  \"quantity\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET WITH EMAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/order/johndoe@example.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"johndoe@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE WITH ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/order/6435b7ddc09af7ac3cf8189f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"6435b7ddc09af7ac3cf8189f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH ORDER",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productName\": \"Product B\",\r\n  \"productId\": \"6435b64ac09af7ac3cf81898\",\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"total\": 50.99,\r\n  \"quantity\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order/6435b7e6c09af7ac3cf818a2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"6435b7e6c09af7ac3cf818a2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "CART",
-			"item": []
+			"item": [
+				{
+					"name": "GET CART",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST CART",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Order A\",\r\n  \"productId\": \"6435b376c09af7ac3cf81884\",\r\n  \"price\": 25.99,\r\n  \"email\": \"johndoe@example.com\",\r\n  \"quantity\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET WITH EMAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/johndoe@example.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"johndoe@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE WITH ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/6435b93dc09af7ac3cf818ac",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"6435b93dc09af7ac3cf818ac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH WITH ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Order B\",\r\n  \"productId\": \"6435b376c09af7ac3cf81884\",\r\n  \"price\": 25.99,\r\n  \"email\": \"johndoe@example.com\",\r\n  \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart/6435b9bfc09af7ac3cf818b1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"6435b9bfc09af7ac3cf818b1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
