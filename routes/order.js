@@ -3,7 +3,7 @@ const router = express.Router();
 const Order = require('../models/order');
 
 //ceate route for order with fields productName, productId, name, email, total, quantity
-router.post('/', (req, res) => {
+router.post('/order', (req, res) => {
     const { productName, productId, name, email, total, quantity } = req.body;
     const order = new Order({
         productName,
@@ -19,28 +19,28 @@ router.post('/', (req, res) => {
 });
 
 //create route to get all orders
-router.get('/',(req, res) => {
+router.route('/order').get((req, res) => {
     Order.find()
         .then(order => res.json(order))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to get all orders by email
-router.get('/:email',(req, res) => {
+router.route('/order/:email').get((req, res) => {
     Order.find({ email: req.params.email })
         .then(order => res.json(order))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to delete order
-router.delete('/:id',(req, res) => {
+router.route('/order/:id').delete((req, res) => {
     Order.findByIdAndDelete(req.params.id)
         .then(() => res.json('Order deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to update order
-router.patch('/:id',(req, res) => {
+router.route('/order/:id').patch((req, res) => {
     Order.findById(req.params.id)
         .then(order => {
             order.productName = req.body.productName;

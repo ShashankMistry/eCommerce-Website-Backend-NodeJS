@@ -4,7 +4,7 @@ const Comment = require('../models/comment');
 
 //ceate route for comment with fields productId, email, rating, review, image
 //create route for post comment
-router.post('/', (req, res) => {
+router.post('/comment', (req, res) => {
     const { productId, email, rating, review, image } = req.body;
     const comment = new Comment({
         productId,
@@ -26,14 +26,14 @@ router.get('/',(req, res) => {
 });
 
 //create route to get all comments by productId
-router.get('/:productId',(req, res) => {
+router.route('/comment/:productId').get((req, res) => {
     Comment.find({ productId: req.params.productId })
         .then(comment => res.json(comment))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //create route to delete comment
-router.delete('/:id',(req, res) => {
+router.route('/comment/:id').delete((req, res) => {
     Comment.findByIdAndDelete(req.params.id)
         .then(() => res.json('Comment deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
